@@ -1,0 +1,93 @@
+:host{
+  display: block;
+  padding: 20px 12px;
+  position: relative;
+
+}
+.main-menu-list{
+  display: grid;
+  grid-gap: 8px;
+  list-style: none;
+}
+.menu-item{
+  padding: 16px 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--light-color);
+  display: grid;
+  grid-template-columns: 16px 1fr max-content;
+  align-items: center;  
+  grid-gap: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  text-align: left;
+  border-radius: 2px;
+  text-decoration: none;
+  &.active,
+  &:hover,
+  &:focus-visible {
+    color: var(--primary-color);
+    
+    #menu-item-img{
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+
+
+#menu-item-img{
+  background-color: #fff;
+  border-radius: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.to-subscribers {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.to-subscribes-link{
+  color: var(--primary-color);
+  text-align: none;
+  text-decoration: none;
+}
+
+.to-subscribes-icon{
+  width: 18px;
+  height: 18px;
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+.sidebar__footer{  
+  position: absolute;
+  width: calc(100% - 20px);
+  bottom: 20px;
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  grid-gap: 12px;
+  align-items: center;
+  img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  .username-text{
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+}
+.settings-btn{
+  img{
+    width: 13px;
+    height: 13px;
+    background-color: var(--primary-color);
+  }
+  
+}
