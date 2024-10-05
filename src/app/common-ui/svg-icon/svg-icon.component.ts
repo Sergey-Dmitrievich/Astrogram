@@ -5,12 +5,12 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   template: '<svg:use [attr.href]="href"></svg:use>',
-  styles: ['']
+  styles: [''],
 })
 export class SvgComponent {
-  @Input() icon = ''
+  @Input() icon = '';
 
   get href() {
-    return `/assets/svg/${this.icon}.svg#${this.icon}`
+    return `/assets/svg/${this.icon}.svg#${this.icon}`;
   }
 }

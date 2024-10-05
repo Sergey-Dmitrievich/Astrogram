@@ -1,41 +1,41 @@
-.profile-page__header{
+.profile-page__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px;
 }
-.to-settings-btn{
+.to-settings-btn {
   width: 190px;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.to-settings-icon{
+.to-settings-icon {
   width: 16px;
   height: 16px;
 }
-.profile-page__body{
+.profile-page__body {
   padding: 24px;
   display: grid;
   grid-gap: 64px;
   grid-template-columns: 1fr 350px;
 }
-.subscribers-wrapper{
+.subscribers-wrapper {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.subscriber-avatar-btn{
+.subscriber-avatar-btn {
   width: 36px;
-  height: 36px; 
-  img{
+  height: 36px;
+  img {
     width: 36px;
-    height: 36px; 
+    height: 36px;
     border-radius: 50%;
   }
 }
-.to-subscribers-search{
+.to-subscribers-search {
   border-radius: 50%;
   background: var(--light-color);
   width: 14px;
@@ -48,7 +48,7 @@
     position: absolute;
     width: 2px;
     height: 8px;
-    background: var(--dark-color);    
+    background: var(--dark-color);
     top: 50%;
     left: 50%;
   }
@@ -57,12 +57,12 @@
     transform: translateY(-50%) translateX(-50%);
   }
 
-  &:after{
+  &:after {
     transform: translateY(-50%) translateX(-50%) rotate(90deg);
   }
 }
 
-.stack-wrapper{
+.stack-wrapper {
   display: flex;
   gap: 4px;
   flex-wrap: wrap;

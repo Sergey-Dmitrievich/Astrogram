@@ -5,37 +5,33 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-avatar-upload',
   standalone: true,
-  imports: [
-    DndDirective,
-    FormsModule
-  ],
+  imports: [DndDirective, FormsModule],
   templateUrl: './avatar-upload.component.html',
-  styleUrl: './avatar-upload.component.scss'
+  styleUrl: './avatar-upload.component.scss',
 })
 export class AvatarUploadComponent {
-  preview = signal<string>('/assets/svg/Astrogram logo.png')
-  avatar: File | null = null
+  preview = signal<string>('/assets/svg/Astrogram logo.png');
+  avatar: File | null = null;
 
-
-  fileBrowserHandler(event: Event){
-    const file = (event.target as HTMLInputElement)?.files?.[0]
-    this.processFile(file)
+  fileBrowserHandler(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    this.processFile(file);
   }
 
-  onFileDroped(file: File){
-    this.processFile(file)
+  onFileDroped(file: File) {
+    this.processFile(file);
   }
 
   processFile(file: File | null | undefined) {
-    if (!file || !file.type.match('image')) return
+    if (!file || !file.type.match('image')) return;
 
-    const reader:FileReader = new FileReader()
+    const reader: FileReader = new FileReader();
 
-    reader.onload = event => {
-      this.preview.set(event.target?.result?.toString() ?? '')
-    }
+    reader.onload = (event) => {
+      this.preview.set(event.target?.result?.toString() ?? '');
+    };
 
-    reader.readAsDataURL(file)
-    this.avatar = file
+    reader.readAsDataURL(file);
+    this.avatar = file;
   }
 }

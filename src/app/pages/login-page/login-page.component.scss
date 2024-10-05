@@ -1,21 +1,21 @@
-:host{
+:host {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100dvh;
   align-items: center;
   margin: 0 5%;
 }
-.login-form{
+.login-form {
   width: 440px;
 }
 .login-form,
-.big-logo{
+.big-logo {
   place-self: center;
 }
-.password-input{
+.password-input {
   position: relative;
 }
-.password-eye-btn{
+.password-eye-btn {
   position: absolute;
   top: 50%;
   right: -25px;
@@ -25,6 +25,6 @@
   border-radius: 50px;
   cursor: pointer;
 }
-.password-eye-btn.active{
+.password-eye-btn.active {
   background: var(--primary-color);
 }

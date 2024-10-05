@@ -1,57 +1,49 @@
-<img 
-src="/assets/svg/Astrogram logo.png" 
-alt="" 
-class="ml16 mb20"
-width="230"
-height="230"
->
+<img
+  src="/assets/svg/Astrogram logo.png"
+  alt=""
+  class="ml16 mb20"
+  width="230"
+  height="230"
+/>
 
 <nav class="mb20">
   <ul class="main-menu-list">
     <li *ngFor="let menuItem of menuItems">
-      <a 
-      class="menu-item"
-      [routerLink]="[menuItem.link]" 
-      routerLinkActive="active"
+      <a
+        class="menu-item"
+        [routerLink]="[menuItem.link]"
+        routerLinkActive="active"
       >
-        <img [src]="menuItem.icon" alt="" id="menu-item-img">
-        <span>{{menuItem.label}}</span>
-    </a>
+        <img [src]="menuItem.icon" alt="" id="menu-item-img" />
+        <span>{{ menuItem.label }}</span>
+      </a>
     </li>
   </ul>
 </nav>
 
 <p class="medium-text mb20">Подписчики</p>
 
-
-
 @for (profile of subscribers$ | async; track profile.id){
-  <app-subscriber-card
-  [profile]="profile"
-  />
+<app-subscriber-card [profile]="profile" />
 }
 
-
-
 <div class="mt20 to-subscribers">
-  <a 
-  [routerLink]="['/subscribers']"
-  class="to-subscribes-link medium-text"
-  >Все подписчики</a>
-  <img src="/assets/svg/arrow.png" class="to-subscribes-icon">
+  <a [routerLink]="['/subscribers']" class="to-subscribes-link medium-text"
+    >Все подписчики</a
+  >
+  <img src="/assets/svg/arrow.png" class="to-subscribes-icon" />
 </div>
 
 <footer class="sidebar__footer">
-  @if(me(); as me) {
-    @if (me.avatarUrl){
-      <img [src]="me.avatarUrl | imgUrl" alt="">
-    } @else {
-      <img src="/assets/svg/Astrogram logo.png" alt="" >
-    }
+  @if(me(); as me) { @if (me.avatarUrl){
+  <img [src]="me.avatarUrl | imgUrl" alt="" />
+  } @else {
+  <img src="/assets/svg/Astrogram logo.png" alt="" />
+  }
 
-    <div class="medium-text username-text">{{me.username}}</div>
-    <a [routerLink]="['/settings']" class="settings-btn">
-      <img src="/assets/svg/settings.png" alt="">
-    </a>
+  <div class="medium-text username-text">{{ me.username }}</div>
+  <a [routerLink]="['/settings']" class="settings-btn">
+    <img src="/assets/svg/settings.png" alt="" />
+  </a>
   }
 </footer>

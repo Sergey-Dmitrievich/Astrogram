@@ -1,21 +1,21 @@
-<img [src]="preview()" alt="" class="avatar">
+<img [src]="preview()" alt="" class="avatar" />
 
-<div 
-dnd
-class="dropzone" 
-tabindex="0" 
-(keyup.enter)="fileDrop.click()"
-(fileDroped)="onFileDroped($event)"
+<div
+  dnd
+  class="dropzone"
+  tabindex="0"
+  (keyup.enter)="fileDrop.click()"
+  (fileDroped)="onFileDroped($event)"
 >
   <div class="dropzone-content">
-    <img src="/assets/svg/cloudIcon.png" alt="">
+    <img src="/assets/svg/cloudIcon.png" alt="" />
     <span class="medium-text"> Перетащите или Загрузите</span>
   </div>
-  <input 
-  tabindex="-1" 
-  class="avatar-input"
-  type="file" 
-  #fileDrop
-  (change)="fileBrowserHandler($event)"
-  >
+  <input
+    tabindex="-1"
+    class="avatar-input"
+    type="file"
+    #fileDrop
+    (change)="fileBrowserHandler($event)"
+  />
 </div>

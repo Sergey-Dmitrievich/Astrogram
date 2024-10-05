@@ -1,36 +1,48 @@
-<form 
-  class="login-form" 
-  [formGroup]="form"
-  (ngSubmit)="onSubmit()"
-  >
+<form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <h1 class="h1 mb60">Вход</h1>
   <label class="ag-control-label mb16">
     Telegram username
-    <input 
-    formControlName="username"
-    class="ag-input" type="text" name="" id="" placeholder="Введите логин">
+    <input
+      formControlName="username"
+      class="ag-input"
+      type="text"
+      name=""
+      id=""
+      placeholder="Введите логин"
+    />
   </label>
 
   <label class="ag-control-label mb32">
     Пароль
 
     <div class="password-input">
-    <input 
-    formControlName="password"
-    class="ag-input" 
-    [type]="isPasswordVisible() ? 'text' : 'password'" 
-    placeholder="Введите пароль"
-    >
-    <button 
-    class="password-eye-btn"
-    [class.active]="isPasswordVisible()"
-    (click)="isPasswordVisible.set(!isPasswordVisible())">
-  
-
-  <img src="/assets/svg/hide_code_icon_215818(1).png" alt="glaz" width="19" height="17" fill="currentColor">
-    </button>
-  </div>
+      <input
+        formControlName="password"
+        class="ag-input"
+        [type]="isPasswordVisible() ? 'text' : 'password'"
+        placeholder="Введите пароль"
+      />
+      <button
+        class="password-eye-btn"
+        [class.active]="isPasswordVisible()"
+        (click)="isPasswordVisible.set(!isPasswordVisible())"
+      >
+        <img
+          src="/assets/svg/hide_code_icon_215818(1).png"
+          alt="glaz"
+          width="19"
+          height="17"
+          fill="currentColor"
+        />
+      </button>
+    </div>
   </label>
   <button class="btn btn-shadow" type="submit">Войти</button>
 </form>
-<img src="/assets/svg/Astrogram logo.png" alt="logo" width="400px" height="400px" class="big-logo">
+<img
+  src="/assets/svg/Astrogram logo.png"
+  alt="logo"
+  width="400px"
+  height="400px"
+  class="big-logo"
+/>

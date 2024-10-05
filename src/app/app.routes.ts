@@ -5,16 +5,29 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { LayoutComponent } from './common-ui/layout/layout.component';
 import { canActivateAuth } from './auth/access.guard';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { provideState } from '@ngrx/store';
+import { profileFeature } from './data/store/reducer';
+import { provideEffects } from '@ngrx/effects';
+import { ProfileEffects } from './data/store/effects';
 
 export const routes: Routes = [
   {
-    path: '', component: LayoutComponent, children: [
-      {path: '', redirectTo: 'profile/me', pathMatch: 'full'},
-      {path: 'profile/:id', component: ProfilePageComponent},
-      {path: 'settings', component: SettingsPageComponent},
-      {path: 'search', component: SearchPageComponent},
-  ],
-  canActivate: [canActivateAuth]
-},
-{path: 'login', component: LoginPageComponent},
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'profile/me', pathMatch: 'full' },
+      { path: 'profile/:id', component: ProfilePageComponent },
+      { path: 'settings', component: SettingsPageComponent },
+      {
+        path: 'search',
+        component: SearchPageComponent,
+        providers: [
+          provideState(profileFeature),
+          provideEffects(ProfileEffects),
+        ],
+      },
+    ],
+    canActivate: [canActivateAuth],
+  },
+  { path: 'login', component: LoginPageComponent },
 ];

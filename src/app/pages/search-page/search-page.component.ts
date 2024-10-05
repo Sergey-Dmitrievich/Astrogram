@@ -1,25 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { Profile } from '../../data/interfaces/profile.interfaces';
 import { ProfileService } from '../../data/services/profile.service';
-import { ProfileCardComponent } from "../../common-ui/profile-card/profile-card.component";
+import { ProfileCardComponent } from '../../common-ui/profile-card/profile-card.component';
+import { ProfileFiltersComponent } from './profile-filters/profile-filters.component';
+import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectFilteredProfiles } from '../../data';
 
 @Component({
   selector: 'app-search-page',
   standalone: true,
-  imports: [ProfileCardComponent],
+  imports: [ProfileCardComponent, ProfileFiltersComponent, CommonModule],
   templateUrl: './search-page.component.html',
-  styleUrl: './search-page.component.scss'
+  styleUrl: './search-page.component.scss',
 })
 export class SearchPageComponent {
   title = 'Astrogram';
-  profileService = inject(ProfileService)
-  profiles : Profile[] = []
+  store = inject(Store);
+  profiles = this.store.selectSignal(selectFilteredProfiles);
 
-  constructor() {
-    this.profileService.getTestAccounts()
-    .subscribe(val => {
-      this.profiles = val
-    })
-  }
-  
+  constructor() {}
 }
