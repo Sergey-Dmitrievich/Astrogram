@@ -1,0 +1,16 @@
+<div class="chats-filters-input__wrapper">
+  <label class="ag-form-label" for="">
+    <span class="ag-form-label__text"></span>
+    <input placeholder="Искать..." type="text" class="ag-form-input" [formControl]="filterChatsControl">
+  </label>
+</div>
+
+
+@for (chat of chats$ | async; track chat.id){
+  <button 
+  chats
+  [chat]="chat"
+  [routerLink]="[chat.id]"
+  routerLinkActive="active"
+  ></button>
+}

@@ -2,12 +2,16 @@
 @import 'margins';
 
 :root {
-  --dark-color: #000000;
+  --dark-color: #00000033;
+  --dark-active-color: #2e2e2e;
   --light-color: #ffffff;
   --primary-color: #ae7aff;
   --gray-color: #6f646d;
   --dark-hover-color: #161616;
   --light-transparent-color: rgba(255, 255, 255, 0.75);
+  --light-border: 1px solid var(--light-color);
+  --message-color: #404840;
+
 }
 *:before,
 *:after {
@@ -22,6 +26,8 @@ body {
   background: radial-gradient(circle, #000000 0%, #0f0c1d 50%, #302b63 100%)
     fixed;
   word-break: break-all;
+  scrollbar-width: none;
+  height: 70dvh;
 }
 .skill-tag {
   padding: 8px 8px;
@@ -38,7 +44,7 @@ body {
   width: 100%;
   border: none;
   background: var(--primary-color);
-  color: var(--dark-color);
+  color: #000000;
   padding: 10px 20px;
   font-weight: 700;
   font-style: 14px;
@@ -104,7 +110,7 @@ body {
 }
 
 .medium-text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 16px;
 }

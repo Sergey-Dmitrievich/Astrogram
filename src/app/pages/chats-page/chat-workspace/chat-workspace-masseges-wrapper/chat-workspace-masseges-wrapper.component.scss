@@ -1,0 +1,16 @@
+:host{
+  display: grid;
+  padding: 16px 20px;
+  grid-template-rows: 1fr min-content;
+}
+
+.messages-wrapper{
+  display: grid;
+  grid-gap: 12px;
+  max-height: 70dvh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.message-input app-message-input{
+ 
+}

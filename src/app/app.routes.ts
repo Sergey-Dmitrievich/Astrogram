@@ -9,6 +9,8 @@ import { provideState } from '@ngrx/store';
 import { profileFeature } from './data/store/reducer';
 import { provideEffects } from '@ngrx/effects';
 import { ProfileEffects } from './data/store/effects';
+import { ChatsPageComponent } from './pages/chats-page/chats.component';
+import { chatsRouter } from './pages/chats-page/chatsRouter';
 
 export const routes: Routes = [
   {
@@ -18,8 +20,9 @@ export const routes: Routes = [
       { path: '', redirectTo: 'profile/me', pathMatch: 'full' },
       { path: 'profile/:id', component: ProfilePageComponent },
       { path: 'settings', component: SettingsPageComponent },
-      {
-        path: 'search',
+      { path: 'chats', 
+        loadChildren: () => chatsRouter },
+      { path: 'search',
         component: SearchPageComponent,
         providers: [
           provideState(profileFeature),

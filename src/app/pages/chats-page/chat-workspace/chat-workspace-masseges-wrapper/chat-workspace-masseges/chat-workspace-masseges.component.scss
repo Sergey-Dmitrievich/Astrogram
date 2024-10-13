@@ -1,0 +1,35 @@
+:host{
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-gap: 12px;
+  margin-bottom: 25px;
+}
+
+:host.is-mine {
+  grid-template-columns: min-content 32px;
+  justify-self: end;
+  
+
+  .message-conteiner{
+    order: -1;
+    .message-text{
+    mask: linear-gradient(#000 0 0), linear-gradient(135deg, #000 50%, #0000 0) border-box 100% 100% / 200% 200% no-repeat;
+    mask-composite: exclude;
+    mask-position:  94% 95%;
+    background: var(--primary-color);
+    color: #000000;
+  }
+  }
+}
+
+.message-text{
+  padding: 8px 16px;
+  background: var(--dark-active-color);
+  font-weight: 500;
+  color: var(--light-color);
+  width: max-content;
+  max-width: 350px;
+  mask: linear-gradient(#000 0 0), linear-gradient(-135deg, #000 50%, #0000 0) border-box 100% 100% / 200% 200% no-repeat;
+  mask-composite: exclude;
+  mask-position: 5% 94%;
+}
