@@ -11,6 +11,7 @@ import { provideEffects } from '@ngrx/effects';
 import { ProfileEffects } from './data/store/effects';
 import { ChatsPageComponent } from './pages/chats-page/chats.component';
 import { chatsRouter } from './pages/chats-page/chatsRouter';
+import { FormsExperimentalComponent } from './experimental/forms-experimental/forms-experimental.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,8 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'profile/me', pathMatch: 'full' },
       { path: 'profile/:id', component: ProfilePageComponent },
+      { path: 'experiments', component: FormsExperimentalComponent},
+      
       { path: 'settings', component: SettingsPageComponent },
       { path: 'chats', 
         loadChildren: () => chatsRouter },

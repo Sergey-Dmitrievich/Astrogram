@@ -15,7 +15,7 @@ export interface IMessage{
   text: string
   createdAt: string
   isRead: boolean
-  updatedAt: string
+  updatedAt?: string
   user?: Profile
   isMine?: Boolean
 }

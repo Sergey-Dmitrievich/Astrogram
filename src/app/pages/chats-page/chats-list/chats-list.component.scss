@@ -1,7 +1,9 @@
 :host{
   border-right: var(--light-border);
   display: block;
-
+  max-height: 90dvh;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .chats-filters-input__wrapper{

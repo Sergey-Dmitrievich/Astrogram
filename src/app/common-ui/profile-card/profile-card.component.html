@@ -23,7 +23,16 @@
     }
   </div>
   <div class="profile-card__action-btns">
-    <div class="btn">Подписаться</div>
+
+
   </div>
+  <button
+    class="btn to-settings-btn"
+    (click)="sendMessage(profile.id)"
+    >Подписаться</button>
+  <button
+    class="btn to-settings-btn"
+    (click)="sendMessage(profile.id)"
+    >Написать</button>
 </div>
 }

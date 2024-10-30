@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <h4 class="h4 mb16">Информация о доставке</h4>
+  <label class="ag-control-label mb16">
+    Тип получателя
+    <select class="ag-input" formControlName="type">
+      <option [value]="ReceiverType.PERSON">Физическое лицо</option>
+      <option [value]="ReceiverType.LEGAL">Юридическое лицо</option>
+    </select>
+  </label>
+
+  <label class="ag-control-label mb16">
+    Имя
+    <input 
+    formControlName="name"
+    type="text"
+    class="ag-input"
+    placeholder="Введите имя"
+    >
+  </label>
+
+  @if(form.controls.name.touched && form.controls.name.hasError('required')){
+    <small>Это поле обязательно!</small>
+  }
+ 
+
+  @if(form.controls.type.value === ReceiverType.LEGAL){
+      <label class="ag-control-label mb16">
+    ИНН
+    <input 
+    formControlName="inn"
+    type="text"
+    class="ag-input"
+    placeholder="Введите ИНН"
+    >
+  </label> 
+  
+  }
+  @else {
+     <label class="ag-control-label mb16">
+    Фамилия
+    <input 
+    formControlName="lastName"
+    type="text"
+    class="ag-input"
+    placeholder="Введите фамилию"
+    >
+  </label>
+  @if(form.controls.lastName.touched && form.controls.name.hasError('required')){
+    <small>Это поле обязательно!</small>
+  }
+  }
+
+
+
+ 
+
+  <button 
+  class="btn btn-shadow mt20" 
+  type="submit"
+  [disabled]="form.invalid"
+  >Подтвердить</button>
+
+</form>
