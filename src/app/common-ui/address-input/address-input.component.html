@@ -1,0 +1,23 @@
+<app-ag-input
+[formControl]="innerSearchControl"
+/>
+
+@if(suggestions$ | async; as suggestions){
+  @if(isDropdawnOpened()){
+    <div class="suggestions-dropdawn">
+      @for(suggest of suggestions; track suggest){
+        <button
+        class="suggest-btn"
+        (click)="onSuggestionPick(suggest)"
+        >{{suggest.data.city}} {{suggest.data.street}} {{suggest.data.house}}</button>
+      }
+    </div>
+  }
+}
+
+<div [formGroup]="addresForm">
+  <app-ag-input formControlName="city">Город</app-ag-input>
+  <app-ag-input formControlName="street">Улица</app-ag-input>
+  <app-ag-input formControlName="building">Дом</app-ag-input>
+</div>
+

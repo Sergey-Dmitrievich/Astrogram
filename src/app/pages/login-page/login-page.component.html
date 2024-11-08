@@ -1,6 +1,13 @@
 <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <h1 class="h1 mb60">Вход</h1>
-  <label class="ag-control-label mb16">
+
+  <app-ag-input
+  type="text"
+  placeholder="Введите логин"
+  formControlName="username"
+  >Telegram username</app-ag-input>
+
+  <!-- <label class="ag-control-label mb16">
     Telegram username
     <input
       formControlName="username"
@@ -10,7 +17,7 @@
       id=""
       placeholder="Введите логин"
     />
-  </label>
+  </label> -->
 
   <label class="ag-control-label mb32">
     Пароль

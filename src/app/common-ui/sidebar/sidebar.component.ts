@@ -1,5 +1,5 @@
 import { Component, inject, WritableSignal } from '@angular/core';
-import { SvgComponent } from '../svg-icon/svg-icon.component';
+import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 import { RouterModule } from '@angular/router';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component';
 import { ProfileService } from '../../data/services/profile.service';
@@ -13,7 +13,7 @@ import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
   selector: 'app-sidebar',
   standalone: true,
   imports: [
-    SvgComponent,
+    SvgIconComponent,
     SubscriberCardComponent,
     RouterModule,
     CommonModule,

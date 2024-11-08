@@ -1,0 +1,58 @@
+
+.stack-control{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--light-color);
+  background: var(--dark-color);
+  padding: 12px 0px;
+  gap: 12px;
+}
+// #cross{
+//   fill: red;
+//   width: 100px;
+//   height: 100px;
+// }
+
+.stack-tag{
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.stack-btn__delete{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.stack-ghost-input{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--light-color);
+  border: none;
+  background: none;
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+#cross{
+  background-color: #fff;
+  border-radius: 10px;
+  width: 14px;
+  height: 14px;
+}
+:host.disabled{
+  .stack-control{
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

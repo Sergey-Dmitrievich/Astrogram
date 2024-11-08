@@ -1,0 +1,12 @@
+<label class="ag-control-label mb16">
+  <ng-content></ng-content>
+  <input
+    [ngModel]="value"
+    (ngModelChange)="onModelChange($event)"
+    class="ag-input"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    (blur)="onTouched"
+    [disabled]="disabled()"
+  />
+</label>

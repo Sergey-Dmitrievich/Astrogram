@@ -1,5 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
   <h4 class="h4 mb16">Информация о доставке</h4>
+
   <label class="ag-control-label mb16">
     Тип получателя
     <select class="ag-input" formControlName="type">
@@ -10,54 +11,146 @@
 
   <label class="ag-control-label mb16">
     Имя
-    <input 
-    formControlName="name"
-    type="text"
-    class="ag-input"
-    placeholder="Введите имя"
-    >
+    <input
+      formControlName="name"
+      class="ag-input"
+      type="text"
+      placeholder="Введите имя"
+    />
+    <!-- <small class="validation">Это поле обязательно!</small> -->
   </label>
+  @if (form.controls.name.touched && form.controls.name.hasError('error')) {
+    <small>{{ form.controls.name.getError('error').message }}!</small>
+  }
+  <!-- @if (form.controls.name.touched && form.controls.name.hasError('error')) {
+    <small>{{ form.controls.name.getError('error').message }}!</small>
+  } -->
 
-  @if(form.controls.name.touched && form.controls.name.hasError('required')){
+  @if (form.controls.name.touched && form.controls.name.hasError('required')) {
     <small>Это поле обязательно!</small>
   }
- 
 
-  @if(form.controls.type.value === ReceiverType.LEGAL){
-      <label class="ag-control-label mb16">
-    ИНН
-    <input 
-    formControlName="inn"
-    type="text"
-    class="ag-input"
-    placeholder="Введите ИНН"
-    >
-  </label> 
-  
-  }
-  @else {
-     <label class="ag-control-label mb16">
-    Фамилия
-    <input 
-    formControlName="lastName"
-    type="text"
-    class="ag-input"
-    placeholder="Введите фамилию"
-    >
-  </label>
-  @if(form.controls.lastName.touched && form.controls.name.hasError('required')){
-    <small>Это поле обязательно!</small>
-  }
+  @if (form.controls.type.value === ReceiverType.LEGAL) {
+    <label class="ag-control-label mb16">
+      ИНН
+      <input
+        formControlName="inn"
+        class="ag-input"
+        type="text"
+        placeholder="Введите ИНН"
+      />
+    </label>
+  } @else {
+    <label class="ag-control-label mb16">
+      Фамилия
+      <input
+        formControlName="lastName"
+        class="ag-input"
+        type="text"
+        placeholder="Введите фамилию"
+      />
+    </label>
   }
 
+  <div style="display: flex; justify-content: space-between;">
+    <h4 class="h6 mb16">Периуд доставки</h4>
+  </div>
+
+  <div class="two-columns" formGroupName="dataRange">
+    <label class="ag-control-label mb16">
+      От
+      <input
+        formControlName="from"
+        class="ag-input"
+        type="date"
+      />
+    </label>
+    <label class="ag-control-label mb16">
+      До
+      <input
+        formControlName="to"
+        class="ag-input"
+        type="date"
+      />
+    </label>
+  </div>
+  @if (form.controls.dataRange.touched && form.controls.dataRange.hasError('error')) {
+    <small>{{ form.controls.dataRange.getError('error').message }}!</small>
+  }
 
 
- 
 
-  <button 
-  class="btn btn-shadow mt20" 
-  type="submit"
-  [disabled]="form.invalid"
-  >Подтвердить</button>
 
+
+  <div>
+    <div style="display: flex; justify-content: space-between;">
+      <h4 class="h6 mb16">Адрес доставки</h4>
+      <button class="btn" style="width: 50px;" (click)="addAddress()">+</button>
+    </div>
+  </div>
+  <div>
+
+  @for(group of form.controls.addresses.controls; track group; let i = $index) {
+    <div class="form-grid" [formGroup]="group">
+      <label class="ag-control-label">
+        Город
+        <input
+          formControlName="city"
+          class="ag-input"
+          type="text"
+          placeholder="Город"
+        />
+      </label>
+
+      <label class="ag-control-label">
+        Улица
+        <input
+          formControlName="street"
+          class="ag-input"
+          type="text"
+          placeholder="Улица"
+        />
+      </label>
+
+      <label class="ag-control-label">
+        Дом
+        <input
+          formControlName="building"
+          class="ag-input"
+          type="text"
+          placeholder="Дом"
+        />
+      </label>
+
+      <label class="ag-control-label">
+        Квартира
+        <input
+          formControlName="apartment"
+          class="ag-input"
+          type="text"
+          placeholder="Квартира"
+        />
+      </label>
+
+
+      <button class="btn" style="grid-column-start: 1; grid-column-end: 3;" (click)="deleteAddres(i)">Удалить</button>
+    </div>
+  }
+  </div>
+
+  <div [formGroup]="form.controls.feature">
+    <h4 class="h6 mb16">Дополнительно</h4>
+    <div style="display: grid; grid-gap: 16px;">
+
+    @for(control of form.controls.feature.controls | keyvalue: sort; track control; let i = $index) {
+      <label>
+
+        <input type="checkbox" [formControlName]="control.key">
+        {{ features[i].label }}
+      </label>
+    }
+  </div>
+</div>
+
+  <button class="btn btn-shadow mt20" type="submit">Подтвердить</button>
 </form>

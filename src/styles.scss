@@ -68,6 +68,10 @@ body {
   background-color: var(--primary-color);
   border-radius: 5px;
 }
+.svg10{
+  width: 10px;
+  height: 10px;
+}
 .size32 {
   width: 32px;
   height: 32px;
@@ -130,7 +134,7 @@ body {
   width: 100%;
   margin-top: 8px;
   display: block;
-  border: 1px solif var(--light-color);
+  border: none;
   border-radius: 4px;
   padding: 12px 20px;
   background: var(--dark-color);
